@@ -1,0 +1,71 @@
+/* ==========================================================================
+   SECTIONS / HERO.CSS — Unang Makikita sa Home Page
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  padding: var(--space-2xl) 0 var(--space-xl);
+  background:
+    radial-gradient(ellipse at 80% -10%, rgba(185,151,91,0.14), transparent 55%),
+    var(--color-sand);
+  overflow: hidden;
+}
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.hero-copy h1 { margin-bottom: var(--space-sm); }
+.hero-copy p {
+  color: var(--color-ink-soft);
+  font-size: var(--text-lg);
+  max-width: 46ch;
+  margin-bottom: var(--space-md);
+}
+.hero-actions { display: flex; gap: var(--space-xs); flex-wrap: wrap; }
+
+.hero-visual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xs);
+}
+.hero-visual .img-placeholder:first-child { grid-column: 1 / -1; aspect-ratio: 16 / 9; }
+.hero-visual .img-placeholder { aspect-ratio: 1 / 1; }
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-md);
+  border-top: var(--border-hairline);
+}
+.hero-stats div strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-ink);
+}
+.hero-stats div span { font-size: var(--text-xs); color: var(--color-stone); text-transform: uppercase; letter-spacing: 0.04em; }
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+  .hero-visual { order: -1; }
+}
+
+/* ---------------- Reveal-on-scroll (ginagamit sa lahat ng page) ---------------- */
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+/* ---------------- Logo strip / trust bar ---------------- */
+.trust-strip {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-lg);
+  flex-wrap: wrap;
+  padding: var(--space-md) 0;
+  color: var(--color-stone);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}

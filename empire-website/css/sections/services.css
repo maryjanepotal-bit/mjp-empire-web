@@ -1,0 +1,77 @@
+/* ==========================================================================
+   SECTIONS / SERVICES.CSS — Services Grid (Home preview + Services hub page)
+   ========================================================================== */
+
+.service-card {
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: var(--border-hairline);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-soft);
+  border-color: var(--color-gold);
+}
+.service-card .icon-badge {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: var(--color-sand-deep);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: var(--space-sm);
+  font-family: var(--font-display);
+  color: var(--color-gold-deep);
+  font-size: 1.1rem;
+}
+.service-card h3 { margin-bottom: 6px; }
+.service-card p { color: var(--color-stone); font-size: var(--text-sm); flex: 1; margin-bottom: var(--space-sm); }
+.service-card .price-tag {
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-gold-deep);
+  font-weight: 700;
+  margin-bottom: var(--space-xs);
+}
+.service-card a.card-link {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-ink);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.service-card a.card-link::after { content: '→'; transition: transform 0.2s ease; }
+.service-card a.card-link:hover::after { transform: translateX(4px); }
+
+/* ---------------- Services grouped by category (services.html) ---------------- */
+.service-group { margin-bottom: var(--space-xl); }
+.service-group-title {
+  display: flex;
+  align-items: baseline;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+.service-group-title h2 { font-size: var(--text-xl); }
+.service-group-title .count {
+  color: var(--color-stone);
+  font-size: var(--text-sm);
+}
+
+/* ---------------- Included list (bullet checklist inside a service detail) ---------------- */
+.included-list li {
+  display: flex;
+  gap: 10px;
+  padding: 6px 0;
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+}
+.included-list li::before {
+  content: '✓';
+  color: var(--color-gold-deep);
+  font-weight: 700;
+}

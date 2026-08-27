@@ -1,0 +1,28 @@
+/* ==========================================================================
+   SECTIONS / PORTFOLIO.CSS — Portfolio / Proof of Work / "Album"
+   ========================================================================== */
+
+.filter-bar {
+  display: flex;
+  gap: var(--space-2xs);
+  flex-wrap: wrap;
+  margin-bottom: var(--space-lg);
+}
+.filter-btn {
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--color-stone-light);
+  font-size: var(--text-sm);
+  color: var(--color-ink-soft);
+  background: var(--color-cream);
+}
+.filter-btn.active { background: var(--color-ink); color: var(--color-white); border-color: var(--color-ink); }
+
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-sm);
+}
+.album-grid .img-placeholder { aspect-ratio: 1; min-height: 0; }
+.album-grid .img-placeholder.tall { grid-row: span 2; aspect-ratio: 1/2; }
+@media (max-width: 760px) { .album-grid { grid-template-columns: repeat(2, 1fr); } }

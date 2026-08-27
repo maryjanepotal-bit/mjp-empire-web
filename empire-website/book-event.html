@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Event — Empire</title>
+<meta name="description" content="Build your event step by step — choose a package or customize every add-on, see your total live, and book your date.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/master.css">
+</head>
+<body>
+
+<header class="site-header">
+  <a href="index.html" class="logo">EMPIRE<span>.</span></a>
+  <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="testimonials.html">Testimonials</a>
+    <a href="book-event.html" class="active">Book an Event</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <button class="nav-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+</header>
+
+<section class="section-sm bg-sand">
+  <div class="container">
+    <div class="section-intro" style="margin-bottom:var(--space-md);">
+      <span class="eyebrow">Event Booking</span>
+      <h1 style="font-size:var(--text-2xl);">Let's Plan Your Event</h1>
+      <p>Answer a few questions, see your estimate update live, and lock in your date.</p>
+    </div>
+
+    <div class="quick-inquiry-banner">
+      <p><strong>Ayaw munang sagutan lahat?</strong> Send an inquiry directly and the Empire team will follow up with details.</p>
+      <button class="btn btn-sm btn-gold" data-quick-inquiry type="button">Just Send an Inquiry</button>
+    </div>
+
+    <div id="bookingWizard">
+      <div class="wizard-progress">
+        <div class="step-dot active"><div class="dot">1</div><span class="label">Event</span></div>
+        <div class="step-dot"><div class="dot">2</div><span class="label">Details</span></div>
+        <div class="step-dot"><div class="dot">3</div><span class="label">Package</span></div>
+        <div class="step-dot"><div class="dot">4</div><span class="label">Styling</span></div>
+        <div class="step-dot"><div class="dot">5</div><span class="label">Review</span></div>
+        <div class="step-dot"><div class="dot">6</div><span class="label">Done</span></div>
+      </div>
+
+      <div class="booking-layout">
+        <div>
+          <!-- STEP 1 — EVENT TYPE -->
+          <div class="wizard-step active" id="step-1">
+            <div class="wizard-card">
+              <h3>What are you celebrating?</h3>
+              <p class="mb-md" style="color:var(--color-stone);font-size:var(--text-sm);">Piliin ang uri ng event.</p>
+              <div class="choice-grid">
+                <label class="choice-card"><input type="radio" name="eventType" value="Birthday"><span class="emoji">🎂</span><span class="name">Birthday</span></label>
+                <label class="choice-card"><input type="radio" name="eventType" value="Wedding"><span class="emoji">💍</span><span class="name">Wedding</span></label>
+                <label class="choice-card"><input type="radio" name="eventType" value="Corporate"><span class="emoji">🏢</span><span class="name">Corporate</span></label>
+                <label class="choice-card"><input type="radio" name="eventType" value="Other"><span class="emoji">✨</span><span class="name">Other</span></label>
+              </div>
+              <div class="wizard-nav"><span></span><button class="btn btn-primary" data-next type="button">Continue</button></div>
+            </div>
+          </div>
+
+          <!-- STEP 2 — DETAILS + CALENDAR -->
+          <div class="wizard-step" id="step-2">
+            <div class="wizard-card">
+              <h3>The Basics</h3>
+              <div class="field-row">
+                <div class="field">
+                  <label for="guestCount">Number of Guests</label>
+                  <input type="number" id="guestCount" min="1" placeholder="e.g. 40">
+                </div>
+                <div class="field">
+                  <label>Do You Have Your Own Venue?</label>
+                  <div style="display:flex;gap:var(--space-sm);margin-top:10px;">
+                    <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-sm);"><input type="radio" name="ownVenue" value="yes"> Yes</label>
+                    <label style="display:flex;align-items:center;gap:6px;font-size:var(--text-sm);"><input type="radio" name="ownVenue" value="no"> No, suggest one</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="eventDate">Preferred Date</label>
+                <input type="date" id="eventDate" readonly placeholder="Pumili sa calendar sa ibaba">
+              </div>
+
+              <div class="mini-calendar mb-sm">
+                <div class="cal-header">
+                  <button type="button" id="calPrev">‹</button>
+                  <span id="calLabel"></span>
+                  <button type="button" id="calNext">›</button>
+                </div>
+                <div class="cal-grid" id="calGrid"></div>
+                <div class="cal-legend">
+                  <span><i class="swatch" style="background:var(--color-stone-light);"></i>Booked</span>
+                  <span><i class="swatch" style="background:var(--color-gold-deep);"></i>Selected</span>
+                  <span><i class="swatch" style="background:var(--color-white);border:1px solid var(--color-stone-light);"></i>Available</span>
+                </div>
+              </div>
+              <p style="font-size:var(--text-xs);color:var(--color-stone);">Sample availability shown for this demo — connects to a live, shared calendar once the backend is wired up (see the note at the bottom of this page).</p>
+
+              <div class="wizard-nav"><button class="btn btn-outline" data-back type="button">Back</button><button class="btn btn-primary" data-next type="button">Continue</button></div>
+            </div>
+          </div>
+
+          <!-- STEP 3 — PATH + PACKAGE / CUSTOM ADD-ONS -->
+          <div class="wizard-step" id="step-3">
+            <div class="wizard-card">
+              <h3>Choose Your Path</h3>
+              <p class="mb-md" style="color:var(--color-stone);font-size:var(--text-sm);">Pumili ng ready-made package, o gumawa ng sarili mong combination.</p>
+              <div class="path-grid mb-md">
+                <label class="path-card"><input type="radio" name="path" value="package"><h4>Quick Package</h4><p style="font-size:var(--text-sm);color:var(--color-stone);">Ready-made bundles</p></label>
+                <label class="path-card"><input type="radio" name="path" value="custom"><h4>Build Your Own</h4><p style="font-size:var(--text-sm);color:var(--color-stone);">Add-ons one by one</p></label>
+              </div>
+
+              <div id="packagePanel" style="display:none;">
+                <div class="package-grid">
+                  <label class="package-card">
+                    <input type="radio" name="package" value="A">
+                    <div class="tier-name">Package A</div>
+                    <div class="tier-price">AED 1,800</div>
+                    <ul><li>Tables &amp; chairs</li><li>Balloon decor</li><li>Basic backdrop</li><li>Souvenirs (30 pcs)</li></ul>
+                  </label>
+                  <label class="package-card">
+                    <input type="radio" name="package" value="B">
+                    <div class="tier-name">Package B</div>
+                    <div class="tier-price">AED 3,200</div>
+                    <ul><li>Everything in A</li><li>3D backdrop + lighting</li><li>MC / host</li><li>Cake</li><li>Souvenirs (50 pcs, wrapped)</li></ul>
+                  </label>
+                  <label class="package-card">
+                    <input type="radio" name="package" value="C">
+                    <div class="tier-name">Package C</div>
+                    <div class="tier-price">AED 5,400</div>
+                    <ul><li>Everything in B</li><li>Trampoline</li><li>Themed styling</li><li>Cards &amp; tags</li><li>Priority delivery</li></ul>
+                  </label>
+                </div>
+              </div>
+
+              <div id="customAddonsPanel" style="display:none;">
+                <div class="addon-row"><div class="addon-info"><h4>Tables &amp; Chairs</h4><span class="price">AED 500</span></div><div class="addon-toggle"><input type="checkbox" id="addon-tablesChairs"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Backdrop</h4><span class="price">From AED 500</span></div><div class="addon-toggle"><input type="checkbox" id="addon-backdrop"></div></div>
+                <div class="addon-row" style="padding-left:24px;"><div class="addon-info"><h4 style="font-size:var(--text-sm);">+ 3D Detail</h4><span class="price">+AED 180</span></div><div class="addon-toggle"><input type="checkbox" id="addon-backdrop3D"></div></div>
+                <div class="addon-row" style="padding-left:24px;"><div class="addon-info"><h4 style="font-size:var(--text-sm);">+ Lighting</h4><span class="price">+AED 120</span></div><div class="addon-toggle"><input type="checkbox" id="addon-backdropLighting"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Balloon Decor</h4><span class="price">From AED 300</span></div><div class="addon-toggle"><input type="checkbox" id="addon-balloon"></div></div>
+                <div class="addon-row">
+                  <div class="addon-info"><h4>Souvenirs</h4><span class="price">AED 12 / piece</span></div>
+                  <div class="qty-control"><button type="button" data-qty-minus="souvenirQty">−</button><input type="number" id="addon-souvenirQty" value="0" min="0"><button type="button" data-qty-plus="souvenirQty">+</button></div>
+                </div>
+                <div class="addon-row" style="padding-left:24px;"><div class="addon-info"><h4 style="font-size:var(--text-sm);">Premium Wrap</h4><span class="price">+AED 3 / piece</span></div><div class="addon-toggle"><input type="checkbox" id="addon-souvenirWrap"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Trampoline</h4><span class="price">Quote-based, ~AED 450</span></div><div class="addon-toggle"><input type="checkbox" id="addon-trampoline"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Slide</h4><span class="price">Quote-based, ~AED 350</span></div><div class="addon-toggle"><input type="checkbox" id="addon-slide"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>MC / Host</h4><span class="price">Quote-based, ~AED 600</span></div><div class="addon-toggle"><input type="checkbox" id="addon-mc"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Lighting</h4><span class="price">Quote-based, ~AED 400</span></div><div class="addon-toggle"><input type="checkbox" id="addon-lighting"></div></div>
+                <div class="addon-row"><div class="addon-info"><h4>Cake</h4><span class="price">From AED 280</span></div><div class="addon-toggle"><input type="checkbox" id="addon-cake"></div></div>
+                <div class="addon-row">
+                  <div class="addon-info"><h4>Cards &amp; Tags</h4><span class="price">AED 4 / piece</span></div>
+                  <div class="qty-control"><button type="button" data-qty-minus="cardsTagsQty">−</button><input type="number" id="addon-cardsTagsQty" value="0" min="0"><button type="button" data-qty-plus="cardsTagsQty">+</button></div>
+                </div>
+              </div>
+
+              <div class="wizard-nav"><button class="btn btn-outline" data-back type="button">Back</button><button class="btn btn-primary" data-next type="button">Continue</button></div>
+            </div>
+          </div>
+
+          <!-- STEP 4 — STYLING + DELIVERY -->
+          <div class="wizard-step" id="step-4">
+            <div class="wizard-card">
+              <h3>Styling &amp; Delivery</h3>
+              <div class="field-row">
+                <div class="field">
+                  <label for="themeColor">Theme / Color</label>
+                  <select id="themeColor">
+                    <option>Floral</option>
+                    <option>Colorful</option>
+                    <option>Custom — describe below</option>
+                  </select>
+                </div>
+                <div class="field">
+                  <label for="themeNotes">Notes on Theme</label>
+                  <input type="text" id="themeNotes" placeholder="e.g. dusty rose &amp; gold">
+                </div>
+              </div>
+              <div class="field">
+                <label>Delivery</label>
+                <label style="display:flex;align-items:center;gap:8px;font-size:var(--text-sm);margin-top:8px;">
+                  <input type="checkbox" id="deliverySeparate"> Itemize delivery separately (AED 150) instead of bundling it into the total
+                </label>
+              </div>
+              <div class="field">
+                <label for="venueAddress">Venue Address</label>
+                <textarea id="venueAddress" rows="3" placeholder="Full address for setup..."></textarea>
+              </div>
+              <div class="wizard-nav"><button class="btn btn-outline" data-back type="button">Back</button><button class="btn btn-primary" data-next type="button">Continue</button></div>
+            </div>
+          </div>
+
+          <!-- STEP 5 — REVIEW + TERMS -->
+          <div class="wizard-step" id="step-5">
+            <div class="wizard-card">
+              <h3>Review &amp; Confirm</h3>
+              <p class="mb-sm" style="color:var(--color-stone);font-size:var(--text-sm);">Check your estimate in the summary panel before confirming.</p>
+              <div class="terms-box">
+                <p><strong>Booking &amp; Payment:</strong> Advance booking is required. A 50% deposit confirms your date.</p>
+                <p><strong>Cancellation:</strong> Bookings are not fully refundable. You may convert your deposit to credit for a different date or occasion. Cancel more than 3 days before your event to remain eligible for conversion — cancellations inside the 3-day window forfeit the deposit, since the date is already held for you.</p>
+                <p><strong>Delivery:</strong> As selected in the previous step.</p>
+              </div>
+              <label class="terms-agree mb-md">
+                <input type="checkbox" id="agreeTerms">
+                <span>Nabasa at sumasang-ayon ako sa Booking &amp; Payment at Cancellation terms sa itaas.</span>
+              </label>
+              <div class="wizard-nav"><button class="btn btn-outline" data-back type="button">Back</button><button class="btn btn-primary" id="confirmBooking" type="button">Confirm Booking</button></div>
+            </div>
+          </div>
+
+          <!-- STEP 6 — CONFIRMATION (populated by JS) -->
+          <div class="wizard-step" id="step-6"></div>
+          <template id="confirmationTemplate">
+            <div class="wizard-card confirmation-box">
+              <div class="checkmark">✓</div>
+              <h3>Booking Request Received!</h3>
+              <p style="color:var(--color-stone);max-width:44ch;margin:var(--space-sm) auto;">Salamat! Makakatanggap ka ng email confirmation kasama ang package details. Susundan ito ng WhatsApp o call sa loob ng 24 oras.</p>
+              <a href="index.html" class="btn btn-outline" style="margin-top:var(--space-sm);">Back to Home</a>
+            </div>
+          </template>
+        </div>
+
+        <!-- SUMMARY SIDEBAR -->
+        <aside class="summary-box">
+          <h3>Your Estimate</h3>
+          <div id="summaryLines"></div>
+          <div class="summary-total"><span>Total</span><span id="summaryTotal">AED 0</span></div>
+          <p class="summary-note">Estimate only, using reference pricing — final quote confirmed by the Empire team.</p>
+        </aside>
+      </div>
+    </div>
+
+    <p style="font-size:var(--text-xs);color:var(--color-stone);margin-top:var(--space-lg);max-width:70ch;">
+      Backend note: dates, add-ons, and totals here run entirely in the browser for this demo. To make bookings persist for real (so two people can't double-book the same date) and to trigger the automatic email + PDF, this form needs to submit to a real backend and database — see Section 9 of the build prompt for the recommended stack.
+    </p>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div><h4>EMPIRE</h4><p>Photography, business support, and event styling — all in one place.</p></div>
+      <div><h4>Quick Links</h4><div class="footer-links"><a href="services.html">Services</a><a href="portfolio.html">Portfolio</a><a href="book-event.html">Book an Event</a><a href="contact.html">Contact</a></div></div>
+      <div><h4>Get in Touch</h4><div class="footer-links"><a href="mailto:hello@empire.ae">hello@empire.ae</a><a href="#" data-whatsapp="Hi Empire!">WhatsApp us</a><span>Dubai, UAE</span></div></div>
+    </div>
+    <div class="footer-bottom"><span>© <span data-year></span> Empire. All rights reserved.</span><span>Designed in Dubai</span></div>
+  </div>
+</footer>
+
+<a href="#" class="whatsapp-float" data-whatsapp="Hi Empire! May tanong ako sa event booking." aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.48 1.32 5L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2m0 1.67c2.2 0 4.26.86 5.82 2.42a8.19 8.19 0 0 1 2.41 5.82c0 4.54-3.7 8.23-8.24 8.23a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.15 8.15 0 0 1-1.26-4.37c0-4.54 3.7-8.23 8.25-8.23M8.53 7.33c-.16 0-.43.06-.66.31c-.22.25-.87.85-.87 2.07c0 1.22.89 2.4 1.01 2.56c.13.17 1.75 2.67 4.25 3.73c2.08.88 2.5.71 2.96.66c.45-.04 1.46-.6 1.67-1.18c.2-.57.2-1.06.14-1.16c-.06-.1-.23-.16-.48-.28c-.25-.13-1.47-.72-1.7-.81c-.23-.08-.4-.12-.56.13c-.17.25-.64.81-.78.97c-.15.17-.29.19-.54.06c-.25-.13-1.05-.38-1.99-1.22c-.74-.66-1.24-1.47-1.38-1.72c-.15-.25-.02-.38.11-.51c.11-.11.25-.29.37-.44c.12-.14.16-.25.24-.41c.08-.17.04-.31-.02-.44c-.06-.13-.56-1.36-.78-1.86c-.2-.5-.4-.42-.56-.43c-.14-.01-.3-.01-.47-.01Z"/></svg>
+</a>
+
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+</body>
+</html>

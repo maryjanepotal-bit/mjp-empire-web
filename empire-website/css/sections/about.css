@@ -1,0 +1,38 @@
+/* ==========================================================================
+   SECTIONS / ABOUT.CSS — About Page
+   ========================================================================== */
+
+.about-hero {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+@media (max-width: 860px) { .about-hero { grid-template-columns: 1fr; } }
+
+.about-hero .img-placeholder { aspect-ratio: 4/5; }
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-md);
+}
+.value-item .num {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  color: var(--color-gold-deep);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.timeline { border-left: 2px solid var(--color-stone-light); padding-left: var(--space-md); }
+.timeline-item { position: relative; padding-bottom: var(--space-md); }
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-md) - 5px);
+  top: 4px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--color-gold-deep);
+}

@@ -1,0 +1,41 @@
+/* ==========================================================================
+   MASTER.CSS — Ito ang "buod" ng LAHAT ng CSS ng site
+   ==========================================================================
+   Bawat pahina (HTML file) ay isa lang ang kine-link na CSS — ito.
+   Pero ang totoong laman ay nakahiwalay sa maliliit na file sa ibaba,
+   kaya kapag nag-edit ka sa isang file (hal. sections/hero.css),
+   AWTOMATIKONG mag-a-apply yun sa buong site — hindi mo na kailangang
+   i-copy paste pabalik dito.
+
+   TALAAN NG MGA SEKSYON (Table of Contents) — pindutin ang Ctrl+Click
+   sa filename sa VS Code para diretsuhin ka doon:
+   --------------------------------------------------------------------------
+   PUNDASYON (Foundation)
+     → base.css         → mga kulay, font, spacing, reset, typography
+     → padding.css       → spacing utilities (.container, .section, .mb-md, etc.)
+
+   MGA PAULIT-ULIT NA PIRASO (Shared components)
+     → components.css   → header/nav, footer, buttons, cards, forms, WhatsApp button
+
+   BAWAT SEKSYON NG PAHINA (Page sections — dito ka pupunta kapag
+   ino-adjust mo ang specific na parte lang, hal. "hero section")
+     → sections/hero.css          → home page hero (unang makikita)
+     → sections/about.css         → about page + "who we are" section
+     → sections/services.css      → services grid / services hub page
+     → sections/portfolio.css     → portfolio / proof-of-work / "album"
+     → sections/testimonials.css  → client feedback section
+     → sections/booking.css       → event booking wizard (pinaka-kumplikadong page)
+     → sections/contact.css       → contact page
+   ========================================================================== */
+
+@import url('base.css');
+@import url('padding.css');
+@import url('components.css');
+
+@import url('sections/hero.css');
+@import url('sections/about.css');
+@import url('sections/services.css');
+@import url('sections/portfolio.css');
+@import url('sections/testimonials.css');
+@import url('sections/booking.css');
+@import url('sections/contact.css');

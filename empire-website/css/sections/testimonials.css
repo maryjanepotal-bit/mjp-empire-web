@@ -1,0 +1,38 @@
+/* ==========================================================================
+   SECTIONS / TESTIMONIALS.CSS — Client Feedback
+   ========================================================================== */
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-md);
+}
+.testimonial-card {
+  background: var(--color-cream);
+  border-radius: var(--radius-lg);
+  padding: var(--space-md);
+  border: var(--border-hairline);
+}
+.testimonial-card .stars { color: var(--color-gold); font-size: var(--text-sm); margin-bottom: var(--space-xs); }
+.testimonial-card p.quote { font-family: var(--font-display); font-size: var(--text-lg); color: var(--color-ink); line-height: 1.4; margin-bottom: var(--space-sm); }
+.testimonial-card .client { display: flex; align-items: center; gap: 10px; }
+.testimonial-card .avatar {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--color-sand-deep);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  color: var(--color-gold-deep);
+  font-size: var(--text-sm);
+}
+.testimonial-card .client-name { font-weight: 600; font-size: var(--text-sm); }
+.testimonial-card .client-role { font-size: var(--text-xs); color: var(--color-stone); }
+
+.review-cta {
+  background: var(--color-ink);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--color-white);
+}
+.review-cta h3 { color: var(--color-white); }
+.review-cta p { color: var(--color-stone-light); margin: var(--space-xs) 0 var(--space-sm); }

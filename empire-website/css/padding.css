@@ -1,0 +1,49 @@
+/* ==========================================================================
+   PADDING.CSS — Spacing Utilities
+   ==========================================================================
+   Mga maliliit na "utility class" para sa espasyo — gamitin na lang ito
+   sa halip na paulit-ulit na sumulat ng padding/margin sa bawat section.
+   Halimbawa: <div class="container pad-lg"> = may container width + malaking padding
+   ========================================================================== */
+
+/* Container — gitna ang laman, may max-width, may padding sa gilid */
+.container {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--space-sm);
+}
+
+/* Vertical padding para sa mga section — ito yung "puwang" sa taas/baba */
+.section {
+  padding-block: var(--space-2xl);
+}
+.section-sm { padding-block: var(--space-xl); }
+
+/* Padding utilities — sukat mula xs hanggang xl */
+.pad-xs  { padding: var(--space-xs); }
+.pad-sm  { padding: var(--space-sm); }
+.pad-md  { padding: var(--space-md); }
+.pad-lg  { padding: var(--space-lg); }
+
+/* Margin-bottom utilities — para sa espasyo sa pagitan ng mga elemento */
+.mb-xs { margin-bottom: var(--space-xs); }
+.mb-sm { margin-bottom: var(--space-sm); }
+.mb-md { margin-bottom: var(--space-md); }
+.mb-lg { margin-bottom: var(--space-lg); }
+.mb-xl { margin-bottom: var(--space-xl); }
+
+/* Gaps — para sa flexbox/grid na layout */
+.gap-xs { gap: var(--space-xs); }
+.gap-sm { gap: var(--space-sm); }
+.gap-md { gap: var(--space-md); }
+.gap-lg { gap: var(--space-lg); }
+
+/* Alternating background — para sa "zebra stripe" na section pattern
+   (ginagamit para tumingin ng may pagkakaiba ang bawat section) */
+.bg-sand      { background: var(--color-sand); }
+.bg-sand-deep { background: var(--color-sand-deep); }
+.bg-cream     { background: var(--color-cream); }
+.bg-ink       { background: var(--color-ink); color: var(--color-white); }
+.bg-ink h1, .bg-ink h2, .bg-ink h3 { color: var(--color-white); }
+
+.text-center { text-align: center; }

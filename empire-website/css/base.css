@@ -1,0 +1,128 @@
+/* ==========================================================================
+   BASE.CSS — Mga Design Token + Reset + Typography
+   ==========================================================================
+   Dito nakalagay ang lahat ng pundasyon ng disenyo: kulay, font, laki ng
+   text, at spacing. Kung gusto mong baguhin ang KULAY ng BUONG site,
+   DITO ka lang mag-edit — sa ":root" section sa ibaba. Awtomatikong
+   mag-a-apply ang pagbabago sa lahat ng pahina.
+   ========================================================================== */
+
+:root {
+  /* ---------- MGA KULAY (Colors) ---------- */
+  --color-ink:        #2B2926;  /* pinaka-madilim — text, dark sections */
+  --color-ink-soft:    #4A4741; /* medyo mas magaan na ink, para sa body text */
+  --color-stone:       #A79E8F; /* katamtamang kulay-abo — borders, secondary text */
+  --color-stone-light:  #D8D2C4;/* magaan na stone — subtle backgrounds, dividers */
+  --color-sand:         #E4DCC8;/* PANGUNAHING background — matte beige */
+  --color-sand-deep:    #D9CEB4;/* medyo mas madilim na sand — panalit-salit na section */
+  --color-cream:        #F2EDE1;/* pinaka-magaan — cards sa ibabaw ng sand */
+  --color-gold:         #B9975B;/* ACCENT na kulay — buttons, highlights, links */
+  --color-gold-deep:    #9C7D45;/* mas madilim na gold — hover state */
+  --color-white:        #FBFAF7;/* halos puti, warm-toned — text sa ibabaw ng dark */
+
+  /* ---------- FONT FAMILY ---------- */
+  --font-display: 'Fraunces', Georgia, serif;      /* para sa mga heading */
+  --font-body:    'Karla', 'Segoe UI', sans-serif; /* para sa body text */
+
+  /* ---------- TYPE SCALE (laki ng text) ---------- */
+  --text-xs:  0.8rem;
+  --text-sm:  0.95rem;
+  --text-base: 1.05rem;
+  --text-lg:  1.3rem;
+  --text-xl:  1.9rem;
+  --text-2xl: 2.75rem;
+  --text-3xl: 4rem;
+
+  /* ---------- SPACING SCALE ---------- */
+  --space-2xs: 0.4rem;
+  --space-xs:  0.75rem;
+  --space-sm:  1.25rem;
+  --space-md:  2rem;
+  --space-lg:  3.25rem;
+  --space-xl:  5rem;
+  --space-2xl: 7.5rem;
+
+  /* ---------- IBA PA ---------- */
+  --radius:      4px;
+  --radius-lg:   10px;
+  --shadow-soft: 0 12px 36px rgba(43, 41, 38, 0.10);
+  --shadow-tight: 0 4px 14px rgba(43, 41, 38, 0.08);
+  --max-width:   1180px;
+  --border-hairline: 1px solid rgba(43, 41, 38, 0.12);
+}
+
+/* ---------- RESET ---------- */
+/* Pinapantay-pantay ang default styling ng browser bago tayo mag-disenyo */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  color: var(--color-ink-soft);
+  background: var(--color-sand);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+ul, ol { list-style: none; }
+button { font: inherit; cursor: pointer; border: none; background: none; }
+input, select, textarea { font: inherit; color: inherit; }
+
+/* ---------- MATTE GRAIN TEXTURE ---------- */
+/* Ito yung "matte cardboard" na feel — subtle grain sa ibabaw ng buong site,
+   hindi ito larawan, generated ng CSS/SVG lang, kaya walang extra image file */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------- TYPOGRAPHY ---------- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--color-ink);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+h1 { font-size: var(--text-3xl); }
+h2 { font-size: var(--text-2xl); }
+h3 { font-size: var(--text-xl); }
+h4 { font-size: var(--text-lg); }
+p  { font-size: var(--text-base); }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-deep);
+  font-weight: 700;
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+}
+
+.section-intro {
+  max-width: 640px;
+  margin: 0 auto var(--space-lg);
+  text-align: center;
+}
+.section-intro p { color: var(--color-stone); margin-top: var(--space-xs); }
+
+@media (max-width: 720px) {
+  :root {
+    --text-3xl: 2.5rem;
+    --text-2xl: 2rem;
+    --text-xl: 1.5rem;
+    --space-2xl: 4rem;
+    --space-xl: 3rem;
+  }
+}
